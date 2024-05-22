@@ -30,9 +30,12 @@ def fetch_reviews(url):
     else:
         print("Failed to retrieve page:", response.status_code)
 
-# Prompt the user to enter the URL
-url = input("Enter the URL of the Zomato page you want to analyze: ")
+# Construct URLs for each page and fetch reviews
+base_url = "https://www.zomato.com/bangalore/meghana-foods-residency-road/reviews?page={}" #keep ?page={} after the link for page handling
+num_pages = 6340  # Assuming there are 5 pages in total
 
-# Fetch reviews from the specified URL
-print("Fetching reviews from:", url)
-fetch_reviews(url)
+for page_num in range(1, num_pages + 1):
+    url = base_url.format(page_num)
+    print("Fetching reviews from page", page_num)
+    fetch_reviews(url)
+    print("------------------------")
