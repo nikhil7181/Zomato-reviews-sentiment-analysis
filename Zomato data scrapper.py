@@ -32,7 +32,7 @@ def fetch_reviews(url):
 
 # Construct URLs for each page and fetch reviews
 base_url = "https://www.zomato.com/bangalore/meghana-foods-residency-road/reviews?page={}" #keep ?page={} after the link for page handling
-num_pages = 6340  # Assuming there are 5 pages in total
+num_pages = 5  # Assuming there are 5 pages in total
 
 for page_num in range(1, num_pages + 1):
     url = base_url.format(page_num)
